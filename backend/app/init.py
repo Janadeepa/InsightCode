@@ -2,7 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config.from_object("config.settings")
+
 db = SQLAlchemy(app)
 
-from . import routes, models, services, utils
+from app import routes, models, services
