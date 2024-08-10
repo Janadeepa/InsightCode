@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Set up Python') {
+            steps {
+                script {
+                    sh 'python -m pip install --upgrade pip'
+                    sh 'pip install -r backend/requirements.txt'
+                }
+            }
+        }
+
+        stage('Run Backend Tests') {
+            steps {
+                dir('backend') {
+                    sh 'pytest --maxfail=1 --disable-warnings -q'
+                }
+            }
+        }
+
+        stage('Set up Node.js') {
+            steps {
+                script {
+                    sh 'npm install -g npm@latest'
+                }
+            }
+        }
+
+        stage('Install Frontend Dependencies') {
+            steps {
+                dir('frontend') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                dir('frontend') {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    echo 'Deploy script goes here'
+                }
+            }
+        }
+    }
+}
