@@ -1,19 +1,21 @@
-from flask import jsonify, request
-from . import app, db
-from .models import CodeAnalysis, NLPFeedback
+from flask import Blueprint, request, jsonify
+from app import app, db
+from app.models import CodeAnalysis, NLPFeedback
 
-@app.route("/code-analysis", methods=["POST"])
+routes_blueprint = Blueprint("routes", __name__)
+
+@routes_blueprint.route("/code_analysis", methods=["POST"])
 def code_analysis():
     code = request.get_json()["code"]
     analysis = CodeAnalysis(code)
-    db.session.add(analysis)
-    db.session.commit()
-    return jsonify({"message": "Code analysis completed"})
+    result = analysis.run()
+    return jsonify({"result": result})
 
-@app.route("/nlp-feedback", methods=["POST"])
+@routes_blueprint.route("/nlp_feedback", methods=["POST"])
 def nlp_feedback():
     code = request.get_json()["code"]
     feedback = NLPFeedback(code)
-    db.session.add(feedback)
-    db.session.commit()
-    return jsonify({"message": "NLP feedback generated"})
+    result = feedback.generate()
+    return jsonify({"result": result})
+
+app.register_blueprint(routes_blueprint)
