@@ -1,82 +1,8 @@
-# ReviseAI
-
-Here's a comprehensive `README.md` file with emojis to enhance the readability and engagement of your project documentation:
-
 ```markdown
 # InsightCode 🧠💻
 
 InsightCode is an AI-powered code review assistant designed to improve code quality through static analysis and natural language feedback. It integrates with GitHub and CI/CD pipelines to provide real-time code review assistance.
-
-## 📁 Project Structure
-
-Here's an overview of the project structure:
-
 ```
-InsightCode/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── routes.py
-│   │   ├── models/
-│   │   │   ├── __init__.py
-│   │   │   ├── code_analysis.py
-│   │   │   ├── nlp_feedback.py
-│   │   ├── services/
-│   │   │   ├── __init__.py
-│   │   │   ├── github_integration.py
-│   │   │   ├── ci_cd_integration.py
-│   │   ├── utils/
-│   │   │   ├── __init__.py
-│   │   │   ├── config.py
-│   ├── tests/
-│   │   ├── __init__.py
-│   │   ├── test_code_analysis.py
-│   │   ├── test_nlp_feedback.py
-│   ├── requirements.txt
-│   ├── wsgi.py
-│   └── run.py
-├── frontend/
-│   ├── public/
-│   │   ├── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Dashboard.js
-│   │   │   ├── ReviewList.js
-│   │   │   ├── CodeReview.js
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   ├── styles/
-│   │   │   ├── App.css
-│   ├── package.json
-│   └── README.md
-├── ai_models/
-│   ├── nlp_model/
-│   │   ├── model.py
-│   │   ├── preprocess.py
-│   │   ├── train.py
-│   ├── static_analysis/
-│   │   ├── static_analyzer.py
-│   │   ├── rules_config.py
-├── ci_cd/
-│   ├── github_actions/
-│   │   ├── main.yml
-│   ├── jenkins/
-│   │   ├── Jenkinsfile
-├── docs/
-│   ├── setup_guide.md
-│   ├── user_guide.md
-│   ├── best_practices.md
-├── scripts/
-│   ├── data_preprocessing.py
-│   ├── model_deployment.py
-├── logs/
-│   ├── app.log
-├── config/
-│   ├── settings.py
-│   ├── secrets.json
-└── README.md
-```
-
 ## 🚀 Getting Started
 
 ### Prerequisites
